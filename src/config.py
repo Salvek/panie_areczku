@@ -11,3 +11,7 @@ CARGO_LOWER_NEGATIVE_BOUNDARY = -200
 BOARD_SIZE = 100
 
 seed(SEED)
+
+
+if __name__ == "__main__":
+    pass
