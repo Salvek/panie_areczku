@@ -1,9 +1,8 @@
 import random
 from math import sqrt
 from uuid import uuid1, UUID
-
-# import numpy as np
-# import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 SEED = 10
@@ -90,39 +89,29 @@ class Board:
     def __str__(self):
         return "\n".join([str(p) for p in self.points])
 
-    # def display(self):
-    #     points_coord = np.array([])
-    #     points = np.array([])
-    #     warehouses_coord = np.array([])
+    def display(self) -> None:
+        points_coord = []
+        warehouses_coord = []
 
-    #     for p in self.points:
-
-    #         if p.is_warehouse:
-    #             pass
-    #         else:
-    #             pass
-    #     x = np.array([p.x for p in self.points if not p.is_warehouse])
-    #     y = np.array([p.y for p in self.points if not p.is_warehouse])
-    #     x_warehouses = np.array([p.x for p in self.points if p.is_warehouse])
-    #     y_warehouses = np.array([p.y for p in self.points if p.is_warehouse])
-    #     plt.scatter(x, y)
-    #     plt.scatter(x_warehouses, y_warehouses)
-    #     plt.show()
+        for p in self.points:
+            (
+                warehouses_coord.append([p.x, p.y])
+                if p.is_warehouse
+                else points_coord.append([p.x, p.y])
+            )
+        np_points_coord = np.array(points_coord)
+        np_warehouses_coord = np.array(warehouses_coord)
+        plt.scatter(np_points_coord[:, 0], np_points_coord[:, 1])
+        plt.scatter(np_warehouses_coord[:, 0], np_warehouses_coord[:, 1])
+        plt.title("Board")
+        plt.xlabel("X coordinates")
+        plt.ylabel("Y coordinates")
+        plt.show()
 
 
 if __name__ == "__main__":
-    # board = Board([Point(), Point(), Point()])
-    # print(board.points[0].id)
-    # board.populate_board()
-    # print(str(board))
-    # board.delete_point(id=board.points[0].id)
-    # print(str(board))
-    # point = Point()
-    # print(str(point))
-    # point.toggle_warehouse()
-    # print(str(point))
     board = Board()
     board.populate_board()
     board.toggle_warehouses()
     print(str(board))
-    # board.display()
+    board.display()
