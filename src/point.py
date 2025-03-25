@@ -48,7 +48,3 @@ class Point:
         self.tuna = 0
         self.oranges = 0
         self.uranium = 0
-
-
-if __name__ == "__main__":
-    pass

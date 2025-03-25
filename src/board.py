@@ -61,7 +61,3 @@ class Board:
         plt.xlabel("X coordinates")
         plt.ylabel("Y coordinates")
         plt.show()
-
-
-if __name__ == "__main__":
-    pass
