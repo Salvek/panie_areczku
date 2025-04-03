@@ -1,7 +1,7 @@
 import random
 from typing import List
 from point import Point
-from src.truck import Truck
+from truck import Truck
 from config import TRUCK_TYPES
 
 

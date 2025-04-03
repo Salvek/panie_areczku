@@ -4,7 +4,6 @@ from fleet import Fleet
 
 if __name__ == "__main__":
     fleet = Fleet()
-
     board = Board()
     board.populate_board()
     board.toggle_warehouses()
