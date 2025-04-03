@@ -25,6 +25,6 @@ class Truck:
     def run(self):
         if not self.start or not self.route:
             raise ValueError(f"🚫 {self.name} nie ma przypisanej trasy.")
-        print(f"\n🚚 {self.name} rusza w trasę (ładowność: {self.capacity}kg)")
+        print(f"\n{self.name} rusza w trasę (ładowność: {self.capacity}kg)")
         self.result = move_truck_along_route(self.start, self.route)
         self.total_distance = self.result['total_distance']

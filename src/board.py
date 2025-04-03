@@ -25,7 +25,6 @@ class Board:
             new_point = Point()
             if (new_point.x, new_point.y) in occupied_coord:
                 continue
-            # if self.points:
             self.points.append(new_point)
             occupied_coord.append((new_point.x, new_point.y))
             points_number -= 1

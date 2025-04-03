@@ -4,16 +4,12 @@ from typing import List
 
 
 def move_truck_along_route(start: Point, route: List[Point]) -> dict:
-    """
-    Przemieszcza ciężarówkę po trasie (liście Pointów), startując z 'start'.
-    Zwraca dane diagnostyczne: dystans, odwiedzone punkty, lista kroków.
-    """
     total_distance = 0
     current = start
     history = [start]
     steps = []
 
-    print(f"🚛 Start z punktu ({current.x}, {current.y})")
+    print(f"Start z punktu ({current.x}, {current.y})")
 
     for next_point in route:
         dx = current.x - next_point.x
@@ -27,11 +23,11 @@ def move_truck_along_route(start: Point, route: List[Point]) -> dict:
             "to_id": str(next_point.id)
         })
         total_distance += distance
-        print(f"➡️  Jedzie do ({next_point.x}, {next_point.y}) | dystans: {distance:.2f}")
+        print(f"Jedzie do ({next_point.x}, {next_point.y}) | dystans: {distance:.2f}")
         current = next_point
         history.append(current)
 
-    print(f"🏁 Trasa zakończona. Łączny dystans: {total_distance:.2f}")
+    print(f"Trasa zakończona. Łączny dystans: {total_distance:.2f}")
 
     return {
         "total_distance": round(total_distance, 2),
