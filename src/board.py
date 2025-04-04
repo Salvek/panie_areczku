@@ -17,7 +17,7 @@ class Board:
     ):
         self.x_dim = x_dim
         self.y_dim = y_dim
-        self.points = points
+        self.points = points if points else []
 
     def populate_board(self, points_number=config.POINTS_NUMBER) -> None:
         occupied_coord = []
@@ -25,8 +25,7 @@ class Board:
             new_point = Point()
             if (new_point.x, new_point.y) in occupied_coord:
                 continue
-            if self.points:
-                self.points.append(new_point)
+            self.points.append(new_point)
             occupied_coord.append((new_point.x, new_point.y))
             points_number -= 1
 
@@ -50,7 +49,7 @@ class Board:
             return ""
         return "\n".join([str(p) for p in self.points])
 
-    def display(self) -> None:
+    def display(self, truck_paths: list = None) -> None:
         if not self.points:
             print("No points to display")
             return
@@ -65,9 +64,25 @@ class Board:
             )
         np_points_coord = np.array(points_coord)
         np_warehouses_coord = np.array(warehouses_coord)
-        plt.scatter(np_points_coord[:, 0], np_points_coord[:, 1])
-        plt.scatter(np_warehouses_coord[:, 0], np_warehouses_coord[:, 1])
-        plt.title("Board")
-        plt.xlabel("X coordinates")
-        plt.ylabel("Y coordinates")
+
+        plt.figure(figsize=(8, 8))
+        if len(np_points_coord) > 0:
+            plt.scatter(np_points_coord[:, 0], np_points_coord[:, 1], label="Klienci", color='blue')
+        if len(np_warehouses_coord) > 0:
+            plt.scatter(np_warehouses_coord[:, 0], np_warehouses_coord[:, 1], label="Magazyny", color='red')
+
+        if truck_paths:
+            colors = ["green", "orange", "purple", "black", "pink", "cyan"]
+            for i, truck_steps in enumerate(truck_paths):
+                c = colors[i % len(colors)]
+                for step in truck_steps:
+                    x_vals = [step["from"][0], step["to"][0]]
+                    y_vals = [step["from"][1], step["to"][1]]
+                    plt.plot(x_vals, y_vals, color=c, linestyle='-', linewidth=2,
+                             label=f"Truck {i + 1}" if step == truck_steps[0] else "")
+
+        plt.title("Mapa trasy")
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        plt.grid(True)
         plt.show()
