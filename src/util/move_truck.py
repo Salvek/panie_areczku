@@ -12,9 +12,7 @@ def move_truck_along_route(start: Point, route: List[Point]) -> dict:
     print(f"Start z punktu ({current.x}, {current.y})")
 
     for next_point in route:
-        dx = current.x - next_point.x
-        dy = current.y - next_point.y
-        distance = math.sqrt(dx**2 + dy**2)
+        distance = current.calc_dist(next_point)
         steps.append({
             "from": (current.x, current.y),
             "to": (next_point.x, next_point.y),

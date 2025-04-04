@@ -17,7 +17,7 @@ class Board:
     ):
         self.x_dim = x_dim
         self.y_dim = y_dim
-        self.points = points if points is not None else []
+        self.points = points if points else []
 
     def populate_board(self, points_number=config.POINTS_NUMBER) -> None:
         occupied_coord = []
