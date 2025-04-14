@@ -1,11 +1,6 @@
-import random
 from random import seed
 
-TRUCK_TYPES = {
-    "zielona": 1000,
-    "niebieska": 1500,
-    "czerwona": 2000
-}
+TRUCK_TYPES = {"zielona": 1000, "niebieska": 1500, "czerwona": 2000}
 
 SEED = 10
 POINTS_NUMBER = 100

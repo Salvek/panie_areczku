@@ -67,9 +67,19 @@ class Board:
 
         plt.figure(figsize=(8, 8))
         if len(np_points_coord) > 0:
-            plt.scatter(np_points_coord[:, 0], np_points_coord[:, 1], label="Klienci", color='blue')
+            plt.scatter(
+                np_points_coord[:, 0],
+                np_points_coord[:, 1],
+                label="Klienci",
+                color="blue",
+            )
         if len(np_warehouses_coord) > 0:
-            plt.scatter(np_warehouses_coord[:, 0], np_warehouses_coord[:, 1], label="Magazyny", color='red')
+            plt.scatter(
+                np_warehouses_coord[:, 0],
+                np_warehouses_coord[:, 1],
+                label="Magazyny",
+                color="red",
+            )
 
         if truck_paths:
             colors = ["green", "orange", "purple", "black", "pink", "cyan"]
@@ -78,8 +88,14 @@ class Board:
                 for step in truck_steps:
                     x_vals = [step["from"][0], step["to"][0]]
                     y_vals = [step["from"][1], step["to"][1]]
-                    plt.plot(x_vals, y_vals, color=c, linestyle='-', linewidth=2,
-                             label=f"Truck {i + 1}" if step == truck_steps[0] else "")
+                    plt.plot(
+                        x_vals,
+                        y_vals,
+                        color=c,
+                        linestyle="-",
+                        linewidth=2,
+                        label=f"Truck {i + 1}" if step == truck_steps[0] else "",
+                    )
 
         plt.title("Mapa trasy")
         plt.xlabel("X")
