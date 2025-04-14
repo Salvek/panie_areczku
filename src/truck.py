@@ -9,7 +9,7 @@ class Truck:
         self.id = uuid.uuid4()
         self.name = name
         self.capacity = capacity
-        self.cargo = {"tuna": 0, "oranges": 0, "uranium": 0}
+        self.cargo = {"tuńczyk": 0, "pomarańcze": 0, "uran": 0}
         self.space_left = capacity - sum(self.cargo.values())
         self.route: List[Point] = []
         self.start: Point = None
