@@ -1,5 +1,5 @@
 import math
-from src.point import Point
+from point import Point
 from typing import List
 
 
