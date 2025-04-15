@@ -36,13 +36,13 @@ class Point:
             self.x,
             self.y,
             self.cargo["tuńczyk"],
-            self.cargo["pomarańcze"],
             self.cargo["uran"],
+            self.cargo["pomarańcze"],
             self.is_warehouse,
         )
 
     def toggle_warehouse(self) -> None:
         self.is_warehouse = not self.is_warehouse
         self.cargo["tuńczyk"] = 0
-        self.cargo["pomarańcze"] = 0
         self.cargo["uran"] = 0
+        self.cargo["pomarańcze"] = 0

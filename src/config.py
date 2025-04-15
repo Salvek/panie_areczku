@@ -10,6 +10,6 @@ CARGO_LOWER_POSITIVE_BOUNDARY = 100
 CARGO_UPPER_NEGATIVE_BOUNDARY = -100
 CARGO_LOWER_NEGATIVE_BOUNDARY = -200
 BOARD_SIZE = 100
-PRODUCTS = ("tuńczyk", "pomarańcze", "uran")
+PRODUCTS = ("tuńczyk", "uran", "pomarańcze")
 
 seed(SEED)
