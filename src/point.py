@@ -10,9 +10,7 @@ class Point:
         self.id = uuid1()
         self.x = randint(0, config.BOARD_SIZE)
         self.y = randint(0, config.BOARD_SIZE)
-        self.tuna = Point.__generate_cargo()
-        self.oranges = Point.__generate_cargo()
-        self.uranium = Point.__generate_cargo()
+        self.cargo = {p: Point.__generate_cargo() for p in config.PRODUCTS}
         self.is_warehouse = False
 
     @staticmethod
@@ -37,14 +35,14 @@ class Point:
             self.id,
             self.x,
             self.y,
-            self.tuna,
-            self.oranges,
-            self.uranium,
+            self.cargo["tuńczyk"],
+            self.cargo["uran"],
+            self.cargo["pomarańcze"],
             self.is_warehouse,
         )
 
     def toggle_warehouse(self) -> None:
         self.is_warehouse = not self.is_warehouse
-        self.tuna = 0
-        self.oranges = 0
-        self.uranium = 0
+        self.cargo["tuńczyk"] = 0
+        self.cargo["uran"] = 0
+        self.cargo["pomarańcze"] = 0

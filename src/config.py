@@ -1,11 +1,6 @@
-import random
 from random import seed
 
-TRUCK_TYPES = {
-    "zielona": 1000,
-    "niebieska": 1500,
-    "czerwona": 2000
-}
+TRUCK_TYPES = {"zielona": 1000, "niebieska": 1500, "czerwona": 2000}
 
 SEED = 10
 POINTS_NUMBER = 100
@@ -15,5 +10,6 @@ CARGO_LOWER_POSITIVE_BOUNDARY = 100
 CARGO_UPPER_NEGATIVE_BOUNDARY = -100
 CARGO_LOWER_NEGATIVE_BOUNDARY = -200
 BOARD_SIZE = 100
+PRODUCTS = ("tuńczyk", "uran", "pomarańcze")
 
 seed(SEED)
