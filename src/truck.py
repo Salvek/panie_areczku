@@ -1,16 +1,17 @@
 import uuid
-from typing import List
+from typing import List, Optional
 from point import Point
 from util.move_truck import move_truck_along_route
 
 
 class Truck:
-    def __init__(self, name: str, capacity: int):
+    def __init__(self, name: str, capacity: int, cat: bool):
         self.id = uuid.uuid4()
         self.name = name
         self.capacity = capacity
         self.cargo = {"tuńczyk": 0, "pomarańcze": 0, "uran": 0}
         self.space_left = capacity - sum(self.cargo.values())
+        self.cat = cat
         self.route: List[Point] = []
         self.start: Point = None
         self.total_distance = 0
