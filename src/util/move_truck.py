@@ -53,4 +53,4 @@ def plan_route(start: Point, targets: List[Point]) -> List[Point]:
     return route
 
 def tuna_devourer(distance: float, tuna_weight: int) -> int:
-    return tuna_weight - int(round(distance,0)) if(tuna_weight>int(round(distance,0))) else 0
+    return tuna_weight - int(math.ceil(distance,0)) if(tuna_weight>int(math.ceil(distance,0))) else 0
