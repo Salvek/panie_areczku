@@ -120,13 +120,3 @@ def plan_route(start: Point, targets: List[Point]) -> List[Point]:
         remaining.remove(next_point)
         current = next_point
     return route
-
-def print_board(board: List[Point]):
-    print("\n=== STAN PUNKTÓW ===")
-    for p in board:
-        print(
-            f"{str(p.id)[:8]} | Tuna: {p.cargo.get('tuńczyk', 0)}kg | "
-            f"Oranges: {p.cargo.get('pomarańcze', 0)}kg | "
-            f"Uranium: {p.cargo.get('uran', 0)}kg | "
-            f"Warehouse: {p.is_warehouse}"
-        )
