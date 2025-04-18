@@ -25,5 +25,15 @@ if __name__ == "__main__":
 
     truck_paths = [t.result["steps"] for t in fleet.trucks if "steps" in t.result]
 
+    print("\n=== RAPORT KOŃCOWY ===")
+    for p in board.points:
+        for prod, qty in p.cargo.items():
+            if qty < 0:
+                print(f"{p.id}: ZA DUŻO {prod} → {qty}kg")
+            elif qty > 0 and not p.is_warehouse:
+                print(f"{p.id}: NIEOBSŁUŻONO {prod} → {qty}kg")
+            else:
+                print(f"{p.id}: OK {prod} → {qty}kg")
+
     board.display(truck_paths)
     print(str(board))

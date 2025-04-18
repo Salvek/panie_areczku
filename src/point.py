@@ -42,7 +42,5 @@ class Point:
         )
 
     def toggle_warehouse(self) -> None:
-        self.is_warehouse = not self.is_warehouse
-        self.cargo["tuńczyk"] = 0
-        self.cargo["uran"] = 0
-        self.cargo["pomarańcze"] = 0
+        self.is_warehouse = True
+        self.cargo = config.WAREHOUSE_PRODUCT_LIMIT.copy()
