@@ -25,8 +25,6 @@ if __name__ == "__main__":
 
     truck_paths = [t.result["steps"] for t in fleet.trucks if "steps" in t.result]
 
-    from point import Point
-
     print("\n=== RAPORT KOŃCOWY ===")
     for p in board.points:
         for prod, qty in p.cargo.items():
