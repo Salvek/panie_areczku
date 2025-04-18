@@ -2,9 +2,6 @@ import math
 from point import Point
 from typing import List
 
-def is_compatible(cargo_list: List[str]) -> bool:
-    return not ('uran' in cargo_list and 'tuńczyk' in cargo_list)
-
 def tuna_devourer(distance: float, tuna_weight: int) -> int:
     return tuna_weight - int(math.ceil(distance)) if(tuna_weight>int(math.ceil(distance))) else 0
 
