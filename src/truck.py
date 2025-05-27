@@ -61,3 +61,16 @@ class Truck:
         print(f"\n{self.name} rusza w trasę (ładowność: {self.capacity}kg)")
         self.result = move_truck_along_route(self, self.start, self.route)
         self.total_distance = self.result.get("total_distance", 0.0)
+        
+        remaining_points = [p for p in self.route if any(val != 0 for val in p.cargo.values())]
+
+        if remaining_points:
+            print(f"{self.name}: wykryto nieobsłużone punkty, podejmuję kolejną próbę.")
+            from util.move_truck import plan_route
+            from_point = self.result.get("last", self.start)
+            additional_route = plan_route(from_point, remaining_points)
+
+            if additional_route:
+                result2 = move_truck_along_route(self, from_point, additional_route)
+                self.result["steps"].extend(result2.get("steps", []))
+                self.total_distance += result2.get("total_distance", 0.0)
