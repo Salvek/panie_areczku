@@ -1,7 +1,7 @@
 import uuid
 from typing import List
 from point import Point
-from util.move_truck import move_truck_along_route
+from util.move_truck import move_truck_along_route, plan_route
 
 class Truck:
     def __init__(self, name: str, capacity: int, cat: bool):
@@ -66,7 +66,6 @@ class Truck:
 
         if remaining_points:
             print(f"{self.name}: wykryto nieobsłużone punkty, podejmuję kolejną próbę.")
-            from util.move_truck import plan_route
             from_point = self.result.get("last", self.start)
             additional_route = plan_route(from_point, remaining_points)
 
