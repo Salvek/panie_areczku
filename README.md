@@ -48,7 +48,6 @@ panie_areczku/
 **Technologia:** Python 3.11  
 **Biblioteki:**
 - NumPy
-- Pandas
 - Matplotlib
 
 **Metody optymalizacji:**
